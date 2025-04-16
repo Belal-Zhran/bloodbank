@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('body');
             $table->text('photo');
-            $table->foreignIdFor(Catigory::class);
+            $table->foreignIdFor(Catigory::class)->constrained()->cascadeOnUpdate()->restrictOnDelete();
             $table->timestamps();
         });
     }

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('client_governorate', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\Client::class);
-            $table->foreignIdFor(\App\Models\Governorate::class);
+            $table->foreignIdFor(\App\Models\Client::class)->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignIdFor(\App\Models\Governorate::class)->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }

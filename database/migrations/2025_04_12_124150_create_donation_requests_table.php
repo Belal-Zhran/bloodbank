@@ -19,14 +19,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('age');
-            $table->foreignIdFor(BloodType::class);
+            $table->foreignIdFor(BloodType::class)->constrained()->restrictOnUpdate()->restrictOnDelete();
             $table->integer('bags_number');
             $table->string('hospital_name');
             $table->string('hospital_address');
-            $table->foreignIdFor(City::class);
+            $table->foreignIdFor(City::class)->constrained()->cascadeOnUpdate()->restrictOnDelete();
             $table->string('phone');
             $table->text('notes')->nullable();
-            $table->foreignIdFor(Client::class);
+            $table->foreignIdFor(Client::class)->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }

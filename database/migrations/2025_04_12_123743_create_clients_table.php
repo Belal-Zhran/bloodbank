@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->date('birth_date');
-            $table->foreignIdFor(BloodType::class);
+            $table->foreignIdFor(BloodType::class)->constrained()->cascadeOnUpdate()->restrictOnDelete();
             $table->date('last_donation');
-            $table->foreignIdFor(City::class);
+            $table->foreignIdFor(City::class)->constrained()->cascadeOnUpdate()->restrictOnDelete();
             $table->string('phone');
             $table->string('password');
             $table->rememberToken();
