@@ -16,6 +16,10 @@ class Article extends Model
                            'category_id'
                         ];
 
+    public function user() :belongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
     public function catigory() :belongsTo
     {
         return $this->belongsTo(Catigory::class);

@@ -17,7 +17,9 @@ class ComplaintFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => $this->faker->sentence(),
+            'body' => $this->faker->paragraph(),
+            'client_id' => 1,
         ];
     }
 }

@@ -21,10 +21,12 @@ return new class extends Migration
             $table->foreignIdFor(BloodType::class)->constrained()->cascadeOnUpdate()->restrictOnDelete();
             $table->date('last_donation');
             $table->foreignIdFor(City::class)->constrained()->cascadeOnUpdate()->restrictOnDelete();
-            $table->string('phone');
+            $table->string('phone')->unique();
             $table->string('password');
             $table->rememberToken();
+            $table->string('api_token', 60)->unique()->nullable();
             $table->timestamps();
+
         });
     }
 

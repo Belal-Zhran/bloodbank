@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 class Client extends Model
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
     protected $fillable = [ 'name',
                             'email',
                             'birth_date',
@@ -60,4 +62,8 @@ class Client extends Model
     {
         return $this->BelongsToMany(Article::class)->withTimestamps();
     }
+
+    protected $hidden = [
+        'password', 'remember_token','api_token'
+    ];
 }
